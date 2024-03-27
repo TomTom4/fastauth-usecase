@@ -1,4 +1,4 @@
-import SignInForm from "../forms/SignIn";
+import RegisterForm from "../forms/Register";
 import Header from "../sections/Header";
 import SocialSignIn from "../sections/SocialSignIn";
 
@@ -10,7 +10,7 @@ export default function Register() {
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-[480px]">
           <div className="bg-white px-6 py-12 shadow sm:rounded-lg sm:px-12">
-            <SignInForm />
+            <RegisterForm />
             <SocialSignIn />
           </div>
 
