@@ -20,7 +20,7 @@ export default function Register() {
               href="#"
               className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
             >
-              Sign In !
+              Sign in !
             </a>
           </p>
         </div>
