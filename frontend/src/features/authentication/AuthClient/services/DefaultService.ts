@@ -13,7 +13,7 @@ export class DefaultService {
      * @returns any Successful Response
      * @throws ApiError
      */
-    public getJwksWellKnownJwksJsonGet(): CancelablePromise<any> {
+    public getJwks(): CancelablePromise<any> {
         return this.httpRequest.request({
             method: 'GET',
             url: '/.well-known/jwks.json',
@@ -24,7 +24,7 @@ export class DefaultService {
      * @returns any Successful Response
      * @throws ApiError
      */
-    public registerRegisterPost({
+    public register({
         requestBody,
     }: {
         requestBody: User,
@@ -44,7 +44,7 @@ export class DefaultService {
      * @returns any Successful Response
      * @throws ApiError
      */
-    public signinSigninPost({
+    public signin({
         formData,
     }: {
         formData: Body_signin_signin_post,
@@ -64,7 +64,7 @@ export class DefaultService {
      * @returns any Successful Response
      * @throws ApiError
      */
-    public deleteUserUserDelete(): CancelablePromise<any> {
+    public deleteUser(): CancelablePromise<any> {
         return this.httpRequest.request({
             method: 'DELETE',
             url: '/user',
