@@ -3,13 +3,13 @@ import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
 const navigation = [
-  { name: "services", href: "#" },
+  { name: "services", href: "/todos" },
   { name: "Features", href: "#" },
   { name: "Marketplace", href: "#" },
   { name: "Company", href: "#" },
 ];
 
-const logIn = { name: "Log in", href: "/auth/" };
+const logIn = { name: "Log in", href: "/auth/sign-in" };
 
 export default function NavBar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
