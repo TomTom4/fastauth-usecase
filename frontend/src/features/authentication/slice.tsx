@@ -1,11 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../../store";
+import AuthClient from "./AuthClient";
 
 // Define a type for the slice state
 export interface AuthState {
   isAuthenticated: boolean;
   user: object;
 }
+
+const client = new AuthClient();
 
 // Define the initial state using that type
 const initialState: AuthState = {
