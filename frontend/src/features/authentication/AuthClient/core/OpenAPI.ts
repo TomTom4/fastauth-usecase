@@ -1,4 +1,4 @@
-import type { ApiRequestOptions } from './ApiRequestOptions';
+import type { AxiosRequestConfig, AxiosResponse } from 'axios';import type { ApiRequestOptions } from './ApiRequestOptions';
 
 type Headers = Record<string, string>;
 type Middleware<T> = (value: T) => T | Promise<T>;
@@ -36,8 +36,8 @@ export type OpenAPIConfig = {
 	USERNAME?: string | Resolver<string> | undefined;
 	VERSION: string;
 	WITH_CREDENTIALS: boolean;
-	interceptors: {request: Interceptors<RequestInit>;
-		response: Interceptors<Response>;};
+	interceptors: {request: Interceptors<AxiosRequestConfig>;
+		response: Interceptors<AxiosResponse>;};
 };
 
 export const OpenAPI: OpenAPIConfig = {
