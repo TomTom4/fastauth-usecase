@@ -1,4 +1,3 @@
-import { DefaultService as AuthClient } from "./AuthClient";
 import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../../store";
 
@@ -27,7 +26,5 @@ export const selectAuth = (state: RootState) => state.auth;
 export default authSlice.reducer;
 
 export function Register(user: { email: string; password: string }) {
-  return async (dispatch, getState) => {
-    AuthClient.register({ username: user.email, password: user.password });
-  };
+  return async (dispatch, getState) => {};
 }

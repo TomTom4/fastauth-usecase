@@ -1,4 +1,10 @@
+import { useRegisterMutation } from "../api";
+
 export default function Register() {
+  const { data, error, isLoading } = useRegisterMutation({
+    username: "toto@gmail.com",
+    password: "test1",
+  });
   return (
     <form className="space-y-6" action="#" method="POST">
       <div>
