@@ -1,12 +1,19 @@
-import { useRegisterMutation } from "../api";
+import { register } from "../slice";
+import { User } from "../schemas";
+import { useDispatch } from "react-redux";
 
 export default function Register() {
-  const { data, error, isLoading } = useRegisterMutation({
-    username: "toto@gmail.com",
-    password: "test1",
-  });
+  const dispatch = useDispatch();
+  const handleSubmit = (event: React.FormEvent) => {
+    event.preventDefault();
+    const userData: User = {
+      username: event.currentTarget.elements.email.value,
+      password: event.currentTarget.elements.password.value,
+    };
+    dispatch(register(userData));
+  };
   return (
-    <form className="space-y-6" action="#" method="POST">
+    <form className="space-y-6" method="POST" onSubmit={handleSubmit}>
       <div>
         <label
           htmlFor="email"

@@ -1,3 +1,5 @@
+import axios from "./axios";
+import { User } from "./schemas";
 import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../../store";
 
@@ -25,6 +27,8 @@ export const selectAuth = (state: RootState) => state.auth;
 
 export default authSlice.reducer;
 
-export function Register(user: { email: string; password: string }) {
-  return async (dispatch, getState) => {};
+export function register(user: User) {
+  return async (dispatch, getState) => {
+    await axios.post("/register", user);
+  };
 }
