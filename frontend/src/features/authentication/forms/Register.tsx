@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 
 export default function Register() {
   const dispatch = useDispatch();
+
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
     const userData: User = {
@@ -12,6 +13,7 @@ export default function Register() {
     };
     dispatch(register(userData));
   };
+
   return (
     <form className="space-y-6" method="POST" onSubmit={handleSubmit}>
       <div>
