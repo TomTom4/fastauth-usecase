@@ -38,3 +38,14 @@ export function register(user: User) {
     }
   };
 }
+
+export function signin(user: User) {
+  return async (dispatch, getState) => {
+    try {
+      await axios.post("/signin", user);
+      toast.success("you are registered");
+    } catch (error) {
+      toast.error(error.message);
+    }
+  };
+}
