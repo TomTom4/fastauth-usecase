@@ -7,7 +7,7 @@ export default function Register() {
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
     const userData: User = {
-      username: event.currentTarget.elements.email.value,
+      email: event.currentTarget.elements.email.value,
       password: event.currentTarget.elements.password.value,
     };
     dispatch(register(userData));
