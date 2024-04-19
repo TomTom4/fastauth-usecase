@@ -2,6 +2,7 @@ import axios from "./axios";
 import { User } from "./schemas";
 import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../../store";
+import toast from "react-hot-toast";
 
 // Define a type for the slice state
 export interface AuthState {
@@ -29,6 +30,11 @@ export default authSlice.reducer;
 
 export function register(user: User) {
   return async (dispatch, getState) => {
-    await axios.post("/register", user);
+    try {
+      await axios.post("/register", user);
+      toast.success("you are registered");
+    } catch (error) {
+      toast.error(error.message);
+    }
   };
 }
