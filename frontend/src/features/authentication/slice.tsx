@@ -7,14 +7,14 @@ import toast from "react-hot-toast";
 // Define a type for the slice state
 export interface AuthState {
   isAuthenticated: boolean;
-  accessToken: object;
+  tokens: object;
   user: object;
 }
 
 // Define the initial state using that type
 const initialState: AuthState = {
   isAuthenticated: false,
-  accessToken: {},
+  tokens: {},
   user: {},
 };
 
@@ -24,10 +24,10 @@ export const authSlice = createSlice({
   initialState,
   reducers: {
     userData(state, action) {
-      state.user = { username: action.payload.username };
+      state.user = { email: action.payload.email };
     },
     signinSuccess(state, action) {
-      state.accessToken = action.payload;
+      state.tokens = action.payload;
       state.isAuthenticated = true;
     },
   },
@@ -59,7 +59,8 @@ export function signin(user: User) {
       formData.append("username", user.email);
       formData.append("password", user.password);
       const response = await axios.post("/signin", formData);
-      dispatch(authSlice.actions.signinSuccess(response.data.accessToken));
+      console.log(response.data);
+      dispatch(authSlice.actions.signinSuccess(response.data));
       console.log(response);
       toast.success("you signed in!");
     } catch (error) {
