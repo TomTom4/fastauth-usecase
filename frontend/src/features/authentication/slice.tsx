@@ -28,6 +28,7 @@ export const authSlice = createSlice({
     },
     signinSuccess(state, action) {
       state.accessToken = action.payload;
+      state.isAuthenticated = true;
     },
   },
 });
