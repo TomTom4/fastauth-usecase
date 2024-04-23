@@ -1,5 +1,5 @@
 import { signin } from "../slice";
-import { User } from "../schemas";
+import { User } from "./schemas";
 import { useDispatch } from "react-redux";
 
 export default function SignIn() {
@@ -7,11 +7,11 @@ export default function SignIn() {
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
-    const userData: User = {
+    const user: User = {
       email: event.currentTarget.elements.email.value,
       password: event.currentTarget.elements.password.value,
     };
-    dispatch(signin(userData));
+    dispatch(signin(user));
   };
   return (
     <form className="space-y-6" method="POST" onSubmit={handleSubmit}>

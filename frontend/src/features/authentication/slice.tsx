@@ -42,8 +42,12 @@ export function register(user: User) {
 export function signin(user: User) {
   return async (dispatch, getState) => {
     try {
-      await axios.post("/signin", user);
-      toast.success("you are registered");
+      const formData = new FormData();
+      formData.append("grant_type", "password");
+      formData.append("username", user.email);
+      formData.append("password", user.password);
+      await axios.post("/signin", formData);
+      toast.success("you signed in!");
     } catch (error) {
       toast.error(error.message);
     }
