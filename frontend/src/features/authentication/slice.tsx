@@ -24,7 +24,7 @@ export const authSlice = createSlice({
   initialState,
   reducers: {
     userData(state, action) {
-      state.user = action.payload;
+      state.user = { username: action.payload.username };
     },
     signinSuccess(state, action) {
       state.accessToken = action.payload;
